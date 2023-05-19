@@ -1,0 +1,8 @@
+@use "variables.scss" as v;
+@use "mixins.scss" as m;
+
+body {
+  font-family: v.$space-grotesk;
+  font-size: 16px;
+  background-color: v.$white;
+}
