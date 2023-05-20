@@ -1,0 +1,160 @@
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  background-color: hsl(0, 0%, 100%);
+  background-image: url("images/bg.png");
+  background-repeat: no-repeat;
+  background-size: 30%;
+}
+body .container {
+  position: relative;
+}
+body .container .box-card {
+  position: relative;
+}
+body .container .box-card__card-front {
+  position: absolute;
+  top: 200;
+  left: -50;
+  width: 500px;
+  height: 300px;
+  background-image: url("images/card-front.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 2rem;
+}
+body .container .box-card__card-front__img {
+  margin-bottom: 5rem;
+}
+body .container .box-card__card-front__txt {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: hsl(0, 0%, 100%);
+}
+body .container .box-card__card-front__txt--small {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+}
+body .container .box-card__card-front .txt-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .box-card__card-front .txt-wrapper {
+  display: flex;
+  gap: 10rem;
+}
+body .container .box-card__card-back {
+  position: absolute;
+  top: 550;
+  left: 50;
+  width: 500px;
+  height: 300px;
+  background-image: url("images/card-back.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 2rem;
+}
+body .container .box-card__card-back__txt {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: hsl(0, 0%, 100%);
+  position: absolute;
+  top: 110;
+  left: 370;
+}
+body .container .card-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-left: 50%;
+  position: absolute;
+  top: 300;
+  left: 50;
+  max-width: 50%;
+}
+body .container .card-form__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  text-transform: uppercase;
+}
+body .container .card-form__input {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  padding: 1rem;
+  border: 1px solid hsl(279, 6%, 55%);
+  border-radius: 0.5rem;
+}
+body .container .card-form__input::-webkit-outer-spin-button, body .container .card-form__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body .container .card-form__input:hover {
+  border: 1px solid hsl(249, 99%, 64%);
+}
+body .container .card-form__input.input-short {
+  max-width: 6rem;
+  gap: 1rem;
+}
+body .container .card-form__input.mr {
+  margin-right: 1rem;
+}
+body .container .card-form__btn {
+  padding: 1rem 1.5rem;
+  background: hsl(278, 68%, 11%);
+  border: none;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+body .container .card-form__btn:hover {
+  opacity: 0.9;
+}
+body .container .card-form .input-wrapper {
+  display: flex;
+}
+body .container .card-confirmation {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 400;
+  right: 100;
+}
+body .container .card-confirmation__img {
+  width: 100px;
+  height: 100px;
+}
+body .container .card-confirmation__title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  text-transform: uppercase;
+}
+body .container .card-confirmation__txt {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: hsl(278, 68%, 11%);
+  opacity: 0.8;
+}
+body .container .card-confirmation__btn {
+  padding: 1rem 5rem;
+  background: hsl(278, 68%, 11%);
+  border: none;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+body .container .card-confirmation__btn:hover {
+  opacity: 0.9;
+}/*# sourceMappingURL=style.css.map */
