@@ -20,8 +20,25 @@
   <body>
     <div class="container">
       <div class="box-card">
-        <div class="box-card__card-front"></div>
-        <div class="box-card__card-back"></div>
+        <div class="box-card__card-front">
+          <img
+            class="box-card__card-front__img"
+            src="./images/circle.png"
+            alt=""
+          />
+          <div class="txt-box">
+            <span class="box-card__card-front__txt">0000 0000 0000 0000</span>
+            <div class="txt-wrapper">
+              <span class="box-card__card-front__txt--small"
+                >Jane Appleseed</span
+              >
+              <span class="box-card__card-front__txt--small">00/00</span>
+            </div>
+          </div>
+        </div>
+        <div class="box-card__card-back">
+          <span class="box-card__card-back__txt">000</span>
+        </div>
       </div>
       <div class="card-form">
         <div class="row mb-3">
@@ -44,11 +61,19 @@
           <div class="row col-6">
             <span class="card-form__title mb-1">Exp. Date (MM/YY)</span>
             <div class="input-wrapper">
-              <input class="card-form__input input-short mr" type="number" placeholder="MM" />
-              <input class="card-form__input input-short" type="number" placeholder="YY" />
-            </div> 
+              <input
+                class="card-form__input input-short mr"
+                type="number"
+                placeholder="MM"
+              />
+              <input
+                class="card-form__input input-short"
+                type="number"
+                placeholder="YY"
+              />
+            </div>
           </div>
-          <div class="row col-6"> 
+          <div class="row col-6">
             <span class="card-form__title mb-1">CVC</span>
             <input
               class="card-form__input input-cvc"
