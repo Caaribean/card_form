@@ -79,6 +79,14 @@ body {
         @include m.button;
       }
 
+      &__error-message {
+        display: none; 
+        margin-top: 0.5rem; 
+        font-size: 1rem;
+        font-weight: 500;
+        color: v.$red;
+      }
+
       .input-wrapper {
         display: flex;
       }

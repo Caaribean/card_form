@@ -73,6 +73,10 @@
   &:hover {
     border: 1px solid v.$blue;
   }
+
+  &[invalid] {
+    border: 0.2rem solid v.$red;
+  }
 }
 
 @mixin button {

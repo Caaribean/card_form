@@ -27,70 +27,87 @@
             alt=""
           />
           <div class="txt-box">
-            <span class="box-card__card-front__txt">0000 0000 0000 0000</span>
+            <span id="card-number" class="box-card__card-front__txt">0000 0000 0000 0000</span>
             <div class="txt-wrapper">
-              <span class="box-card__card-front__txt--small"
+              <span id="card-name" class="box-card__card-front__txt--small"
                 >Jane Appleseed</span
               >
-              <span class="box-card__card-front__txt--small">00/00</span>
+              <span id="card-date" class="box-card__card-front__txt--small">00/00</span>
             </div>
           </div>
         </div>
         <div class="box-card__card-back">
-          <span class="box-card__card-back__txt">000</span>
+          <span id="card-cvc" class="box-card__card-back__txt">000</span>
         </div>
       </div>
       <div class="card-form">
         <div class="row mb-3">
           <span class="card-form__title mb-1">Cardholder Name</span>
           <input
+            id="input-cardholder-name"
             class="card-form__input"
             type="text"
             placeholder="e.g. Jane Appleseed"
           />
+          <span id="error-blank-name" class="card-form__error-message">Can`t be blank</span>
         </div>
         <div class="row mb-3">
           <span class="card-form__title mb-1">Card Number</span>
           <input
+          id="input-card-number"
             class="card-form__input"
             type="number"
             placeholder="e.g. 1234 5678 9123 000"
           />
+          <span id="error-blank-number" class="card-form__error-message">Can`t be blank</span>
+          <span id="error-wrong-number" class="card-form__error-message">Wrong format</span>
         </div>
         <div class="row mb-3 col-12">
           <div class="row col-6">
             <span class="card-form__title mb-1">Exp. Date (MM/YY)</span>
             <div class="input-wrapper">
               <input
+              id="input-month"
                 class="card-form__input input-short mr"
                 type="number"
                 placeholder="MM"
               />
               <input
+              id="input-year"
                 class="card-form__input input-short"
                 type="number"
                 placeholder="YY"
               />
             </div>
+            <span id="error-blank-date" class="card-form__error-message">Can`t be blank</span>
           </div>
           <div class="row col-6">
             <span class="card-form__title mb-1">CVC</span>
             <input
+            id="input-cvc"
               class="card-form__input"
               type="number"
               placeholder="e.g. 123"
             />
+            <span id="error-blank-cvc" class="card-form__error-message">Can`t be blank</span>
+            <span id="error-wrong-cvc" class="card-form__error-message">CVC is too short</span>
           </div>
         </div>
         <div class="row mt-3">
-          <button type="submit" class="card-form__btn">Confirm</button>
+          <button type="submit" id="btn-confirm" class="card-form__btn">Confirm</button>
         </div>
       </div>
       <div class="card-confirmation">
-        <img class="card-confirmation__img mb-3" src="./images/complete.png" alt="">
+        <img
+          class="card-confirmation__img mb-3"
+          src="./images/complete.png"
+          alt=""
+        />
         <span class="card-confirmation__title mt-3">Thank you!</span>
-        <span class="card-confirmation__txt mb-3">We've added your card details</span>
-        <button class="card-confirmation__btn mt-3">Continue</button>
+        <span class="card-confirmation__txt mb-3"
+          >We've added your card details</span
+        >
+        <button id="btn-continue" class="card-confirmation__btn mt-3">Continue</button>
       </div>
     </div>
 
