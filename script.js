@@ -19,10 +19,11 @@ window.addEventListener("load", function () {
   const errorBlankNumber = document.getElementById("error-blank-number");
   const errorWrongNumber = document.getElementById("error-wrong-number");
   const errorBlankDate = document.getElementById("error-blank-date");
+  const errorWrongDate = document.getElementById("error-wrong-date");
   const errorBlankCVC = document.getElementById("error-blank-cvc");
   const errorWrongCVC = document.getElementById("error-wrong-cvc");
 
-  inputCardholderName.addEventListener("change", (e) => {});
+  /* inputCardholderName.addEventListener("change", (e) => {});
 
   inputCardNumber.addEventListener("change", (e) => {});
 
@@ -30,9 +31,14 @@ window.addEventListener("load", function () {
 
   inputYear.addEventListener("change", (e) => {});
 
-  inputCVC.addEventListener("change", (e) => {});
+  inputCVC.addEventListener("change", (e) => {}); */
 
-  buttonConfirm.addEventListener("click", (e) => {});
+  buttonConfirm.addEventListener("click", (e) => {
+    validationCardholderName();
+    validationCardNumber();
+    validationDate();
+    validationCVC();
+  });
 
   buttonContinue.addEventListener("click", (e) => {});
 
@@ -55,7 +61,7 @@ window.addEventListener("load", function () {
     setDisplayToElement(errorBlankNumber, "none");
     setDisplayToElement(errorWrongNumber, "none");
     if (isCardNumberNotEmpty()) {
-      const isValid = validValueFromCardNumber(inputCardNumber.value);
+      const isValid = checkLengthCardNumber(inputCardNumber.value);
       if (isValid) {
         inputCardNumber.removeAttribute("invalid");
         setDisplayToElement(errorWrongNumber, "none");
@@ -68,14 +74,37 @@ window.addEventListener("load", function () {
     }
   }
 
-  function validationDate() {}
+  // ta funkcja mi nie działa! 
+
+  function validationDate() {
+    inputMonth.removeAttribute("invalid");
+    inputYear.removeAttribute("invalid");
+    setDisplayToElement(errorBlankDate, "none");
+    setDisplayToElement(errorWrongDate, "none");
+    if(isMonthNotEmpty() || isYearNotEmpty()) {
+      const isValidMonth = validValueFromMonth(inputMonth.value);
+      const isValidMonthLength = checkLengthMonth(inputMonth.value);
+      const isValidYearLength = checkLengthYear(inputYear.value);
+      if (isValidMonth || isValidMonthLength || isValidYearLength) {
+        inputMonth.removeAttribute("invalid");
+        inputYear.removeAttribute("invalid");
+        setDisplayToElement(errorWrongDate, "none");
+        return true;
+      } else {
+        inputMonth.removeAttribute("invalid", !isValid);
+        inputYear.removeAttribute("invalid", !isValid);
+        setDisplayToElement(errorWrongDate, "block");
+        return false; 
+      }
+    }
+  }
 
   function validationCVC() {
     inputCVC.removeAttribute("invalid");
     setDisplayToElement(errorBlankCVC, "none");
     setDisplayToElement(errorWrongCVC, "none");
     if (isCVCNotEmpty()) {
-      const isValid = validValueFromCVC(inputCVC.value);
+      const isValid = checkLengthCVC(inputCVC.value);
       if (isValid) {
         inputCVC.removeAttribute("invalid");
         setDisplayToElement(errorWrongCVC, "none");
@@ -90,20 +119,24 @@ window.addEventListener("load", function () {
 
   // checking - valid fields
 
-  function validValueFromCardNumber(value) {
-    return value.length > 0 && value.length <= 9;
+  function checkLengthCardNumber(value) {
+    return value.length == 9;
   }
 
   function validValueFromMonth(value) {
     return value > 0 && value <= 31;
   }
 
-  function validValueFromYear(value) {
-    return value.length === 2;
+  function checkLengthYear(value) {
+    return value.length == 2;
   }
 
-  function validValueFromCVC(value) {
-    return value.length === 3;
+  function checkLengthMonth(value) {
+    return value.length == 2;
+  }
+
+  function checkLengthCVC(value) {
+    return value.length == 3;
   }
 
   // checking - empty fields
@@ -130,6 +163,16 @@ window.addEventListener("load", function () {
 
   function isMonthNotEmpty() {
     if (!inputMonth.value) {
+      setDisplayToElement(errorBlankDate, "block");
+      return false;
+    } else {
+      setDisplayToElement(errorBlankDate, "none");
+      return true;
+    }
+  }
+
+  function isYearNotEmpty() {
+    if (!inputYear.value) {
       setDisplayToElement(errorBlankDate, "block");
       return false;
     } else {
