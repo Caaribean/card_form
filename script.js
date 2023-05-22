@@ -43,6 +43,49 @@ window.addEventListener("load", function () {
   function validationCardholderName() {
     inputCardholderName.removeAttribute("invalid");
     setDisplayToElement(errorBlankName, "none");
+    if (isCardholerNameNotEmpty()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function validationCardNumber() {
+    inputCardNumber.removeAttribute("invalid");
+    setDisplayToElement(errorBlankNumber, "none");
+    setDisplayToElement(errorWrongNumber, "none");
+    if (isCardNumberNotEmpty()) {
+      const isValid = validValueFromCardNumber(inputCardNumber.value);
+      if (isValid) {
+        inputCardNumber.removeAttribute("invalid");
+        setDisplayToElement(errorWrongNumber, "none");
+        return true;
+      } else {
+        inputCardNumber.removeAttribute("invalid", !isValid);
+        setDisplayToElement(errorWrongNumber, "block");
+        return false;
+      }
+    }
+  }
+
+  function validationDate() {}
+
+  function validationCVC() {
+    inputCVC.removeAttribute("invalid");
+    setDisplayToElement(errorBlankCVC, "none");
+    setDisplayToElement(errorWrongCVC, "none");
+    if (isCVCNotEmpty()) {
+      const isValid = validValueFromCVC(inputCVC.value);
+      if (isValid) {
+        inputCVC.removeAttribute("invalid");
+        setDisplayToElement(errorWrongCVC, "none");
+        return true;
+      } else {
+        inputCVC.removeAttribute("invalid", !isValid);
+        setDisplayToElement(errorWrongCVC, "block");
+        return false; 
+      }
+    }
   }
 
   // checking - valid fields
@@ -63,49 +106,45 @@ window.addEventListener("load", function () {
     return value.length === 3;
   }
 
-
   // checking - empty fields
 
   function isCardholerNameNotEmpty() {
     if (!inputCardholderName.value) {
-        setDisplayToElement(errorBlankName, "block");
-        return false;
-      } else {
-        setDisplayToElement(errorBlankName, "none");
-        return true;
-      }
+      setDisplayToElement(errorBlankName, "block");
+      return false;
+    } else {
+      setDisplayToElement(errorBlankName, "none");
+      return true;
+    }
   }
 
   function isCardNumberNotEmpty() {
     if (!inputCardNumber.value) {
-        setDisplayToElement(errorBlankNumber, "block");
-        return false;
-      } else {
-        setDisplayToElement(errorBlankNumber, "none");
-        return true;
-      }
+      setDisplayToElement(errorBlankNumber, "block");
+      return false;
+    } else {
+      setDisplayToElement(errorBlankNumber, "none");
+      return true;
+    }
   }
 
   function isMonthNotEmpty() {
     if (!inputMonth.value) {
-        setDisplayToElement(errorBlankDate, "block");
-        return false;
-      } else {
-        setDisplayToElement(errorBlankDate, "none");
-        return true;
-      }
+      setDisplayToElement(errorBlankDate, "block");
+      return false;
+    } else {
+      setDisplayToElement(errorBlankDate, "none");
+      return true;
+    }
   }
 
   function isCVCNotEmpty() {
     if (!inputCVC.value) {
-        setDisplayToElement(errorBlankCVC, "block");
-        return false;
-      } else {
-        setDisplayToElement(errorBlankCVC, "none");
-        return true;
-      }
+      setDisplayToElement(errorBlankCVC, "block");
+      return false;
+    } else {
+      setDisplayToElement(errorBlankCVC, "none");
+      return true;
+    }
   }
-
-
-
 });
