@@ -87,9 +87,12 @@
   border-radius: 0.5rem;
   font-size: 1.5rem;
   font-weight: 500;
+  transition: transform 1000ms; 
 
-  &:hover {
+  &:hover, &:focus-visible {
     opacity: 0.9;
+    transform: translate(-0.75rem);
+    transition: transform 250ms; 
   }
 }
 

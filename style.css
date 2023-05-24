@@ -98,6 +98,9 @@ body .container .card-form__input::-webkit-outer-spin-button, body .container .c
 body .container .card-form__input:hover {
   border: 1px solid hsl(249, 99%, 64%);
 }
+body .container .card-form__input[invalid] {
+  border: 0.2rem solid hsl(0, 100%, 66%);
+}
 body .container .card-form__input.input-short {
   max-width: 6rem;
   gap: 1rem;
@@ -114,9 +117,12 @@ body .container .card-form__btn {
   border-radius: 0.5rem;
   font-size: 1.5rem;
   font-weight: 500;
+  transition: transform 1000ms;
 }
-body .container .card-form__btn:hover {
+body .container .card-form__btn:hover, body .container .card-form__btn:focus-visible {
   opacity: 0.9;
+  transform: translate(-0.5rem);
+  transition: transform 250ms;
 }
 body .container .card-form__error-message {
   display: none;
@@ -161,7 +167,10 @@ body .container .card-confirmation__btn {
   border-radius: 0.5rem;
   font-size: 1.5rem;
   font-weight: 500;
+  transition: transform 1000ms;
 }
-body .container .card-confirmation__btn:hover {
+body .container .card-confirmation__btn:hover, body .container .card-confirmation__btn:focus-visible {
   opacity: 0.9;
+  transform: translate(-0.5rem);
+  transition: transform 250ms;
 }/*# sourceMappingURL=style.css.map */

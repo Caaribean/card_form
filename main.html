@@ -32,7 +32,7 @@
               <span id="card-name" class="box-card__card-front__txt--small"
                 >Jane Appleseed</span
               >
-              <span id="card-date" class="box-card__card-front__txt--small">00/00</span>
+              <span id="card-date" class="box-card__card-front__txt--small"><span id="card-month">00</span><span>/</span><span id="card-year">00</span></span>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <span id="card-cvc" class="box-card__card-back__txt">000</span>
         </div>
       </div>
-      <div class="card-form">
+      <div class="card-form" id="card-form">
         <div class="row mb-3">
           <span class="card-form__title mb-1">Cardholder Name</span>
           <input
@@ -77,14 +77,14 @@
                 class="card-form__input input-short"
                 type="number"
                 placeholder="YY"
-              />
+              /> 
             </div>
             <span id="error-blank-date" class="card-form__error-message">Can`t be blank</span>
             <span id="error-wrong-date" class="card-form__error-message">Wrong format</span>
           </div>
-          <div class="row col-6">
+          <div class="row col-6"> 
             <span class="card-form__title mb-1">CVC</span>
-            <input
+            <input 
             id="input-cvc"
               class="card-form__input"
               type="number"
@@ -98,7 +98,7 @@
           <button type="submit" id="btn-confirm" class="card-form__btn">Confirm</button>
         </div>
       </div>
-      <div class="card-confirmation">
+      <div class="card-confirmation" id="card-confirmation">
         <img
           class="card-confirmation__img mb-3"
           src="./images/complete.png"

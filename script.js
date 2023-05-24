@@ -12,7 +12,12 @@ window.addEventListener("load", function () {
   const cardNumber = document.getElementById("card-number");
   const cardName = document.getElementById("card-name");
   const cardDate = document.getElementById("card-date");
+  const cardMonth = document.getElementById("card-month");
+  const cardYear = document.getElementById("card-year");
   const cardCVC = document.getElementById("card-cvc");
+
+  const cardForm = document.getElementById("card-form");
+  const cardConfirmation = document.getElementById("card-confirmation");
 
   // error messages
   const errorBlankName = document.getElementById("error-blank-name");
@@ -23,21 +28,36 @@ window.addEventListener("load", function () {
   const errorBlankCVC = document.getElementById("error-blank-cvc");
   const errorWrongCVC = document.getElementById("error-wrong-cvc");
 
-  /* inputCardholderName.addEventListener("change", (e) => {});
+  inputCardholderName.addEventListener("keyup", (e) => {
+    cardName.textContent = inputCardholderName.value;
+  });
 
-  inputCardNumber.addEventListener("change", (e) => {});
+  inputCardNumber.addEventListener("keyup", (e) => {
+    cardNumber.textContent = inputCardNumber.value;
+  });
 
-  inputMonth.addEventListener("change", (e) => {});
+  inputMonth.addEventListener("keyup", (e) => {
+    cardMonth.textContent = inputMonth.value;
+  });
 
-  inputYear.addEventListener("change", (e) => {});
+  inputYear.addEventListener("keyup", (e) => {
+    cardYear.textContent = inputYear.value;
+  });
 
-  inputCVC.addEventListener("change", (e) => {}); */
+  inputCVC.addEventListener("keyup", (e) => {
+    cardCVC.textContent = inputCVC.value;
+  });
 
   buttonConfirm.addEventListener("click", (e) => {
     validationCardholderName();
     validationCardNumber();
     validationDate();
     validationCVC();
+
+    if (validationCardholderName() && validationCardNumber() && validationDate() && validationCVC()) {
+      setDisplayToElement(cardForm, "none");
+      setDisplayToElement(cardConfirmation, "flex");
+    }
   });
 
   buttonContinue.addEventListener("click", (e) => {});
@@ -81,11 +101,11 @@ window.addEventListener("load", function () {
     inputYear.removeAttribute("invalid");
     setDisplayToElement(errorBlankDate, "none");
     setDisplayToElement(errorWrongDate, "none");
-    if(isMonthNotEmpty() || isYearNotEmpty()) {
+    if(isMonthNotEmpty() && isYearNotEmpty()) {
       const isValidMonth = validValueFromMonth(inputMonth.value);
       const isValidMonthLength = checkLengthMonth(inputMonth.value);
       const isValidYearLength = checkLengthYear(inputYear.value);
-      if (isValidMonth || isValidMonthLength || isValidYearLength) {
+      if (isValidMonth && isValidMonthLength && isValidYearLength) {
         inputMonth.removeAttribute("invalid");
         inputYear.removeAttribute("invalid");
         setDisplayToElement(errorWrongDate, "none");
@@ -120,7 +140,7 @@ window.addEventListener("load", function () {
   // checking - valid fields
 
   function checkLengthCardNumber(value) {
-    return value.length == 9;
+    return value.length === 16;
   }
 
   function validValueFromMonth(value) {
@@ -128,15 +148,15 @@ window.addEventListener("load", function () {
   }
 
   function checkLengthYear(value) {
-    return value.length == 2;
+    return value.length === 2;
   }
 
   function checkLengthMonth(value) {
-    return value.length == 2;
+    return value.length === 2;
   }
 
   function checkLengthCVC(value) {
-    return value.length == 3;
+    return value.length === 3;
   }
 
   // checking - empty fields
@@ -190,4 +210,5 @@ window.addEventListener("load", function () {
       return true;
     }
   }
+
 });
