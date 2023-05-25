@@ -54,13 +54,30 @@ window.addEventListener("load", function () {
     validationDate();
     validationCVC();
 
-    if (validationCardholderName() && validationCardNumber() && validationDate() && validationCVC()) {
+    if (
+      validationCardholderName() &&
+      validationCardNumber() &&
+      validationDate() &&
+      validationCVC()
+    ) {
       setDisplayToElement(cardForm, "none");
       setDisplayToElement(cardConfirmation, "flex");
     }
   });
 
-  buttonContinue.addEventListener("click", (e) => {});
+  buttonContinue.addEventListener("click", (e) => {
+    setDisplayToElement(cardForm, "flex");
+    setDisplayToElement(cardConfirmation, "none");
+    inputCardholderName.value = "";
+    inputCardNumber.value = "";
+    inputMonth.value = "";
+    inputYear.value = "";
+    inputCVC.value = "";
+    cardName.textContent = "JANE APPLESEED";
+    cardNumber.textContent = "0000 0000 0000 0000";
+    cardDate.textContent = "00/00";
+    cardCVC.textContent = "000";
+  });
 
   function setDisplayToElement(elementDOM, typeOfDisplay) {
     elementDOM.style.display = typeOfDisplay;
@@ -94,27 +111,32 @@ window.addEventListener("load", function () {
     }
   }
 
-  // ta funkcja mi nie działa! 
+  // ta funkcja mi nie działa!
 
   function validationDate() {
+    console.log("siemka");
     inputMonth.removeAttribute("invalid");
     inputYear.removeAttribute("invalid");
     setDisplayToElement(errorBlankDate, "none");
     setDisplayToElement(errorWrongDate, "none");
-    if(isMonthNotEmpty() && isYearNotEmpty()) {
+    if (isMonthNotEmpty() && isYearNotEmpty()) {
       const isValidMonth = validValueFromMonth(inputMonth.value);
       const isValidMonthLength = checkLengthMonth(inputMonth.value);
       const isValidYearLength = checkLengthYear(inputYear.value);
       if (isValidMonth && isValidMonthLength && isValidYearLength) {
+        //tu wchodzimy kiedy wszystko jest okej więc usuwanie atrybutu i ustawianie display none jest prawiłowe
         inputMonth.removeAttribute("invalid");
         inputYear.removeAttribute("invalid");
         setDisplayToElement(errorWrongDate, "none");
         return true;
       } else {
-        inputMonth.removeAttribute("invalid", !isValid);
-        inputYear.removeAttribute("invalid", !isValid);
+        //tutaj trochę się zadziało
+        //wchodzimy tutaj jak jest błąd, więc użycie removeAttribute w tym przypadku jest niepoprawne
+        //inputMonth.removeAttribute("invalid", !isValid);
+        //inputYear.removeAttribute("invalid", !isValid);
+        //to setDisplayToElement jest git
         setDisplayToElement(errorWrongDate, "block");
-        return false; 
+        return false;
       }
     }
   }
@@ -132,7 +154,7 @@ window.addEventListener("load", function () {
       } else {
         inputCVC.removeAttribute("invalid", !isValid);
         setDisplayToElement(errorWrongCVC, "block");
-        return false; 
+        return false;
       }
     }
   }
@@ -210,5 +232,4 @@ window.addEventListener("load", function () {
       return true;
     }
   }
-
 });
