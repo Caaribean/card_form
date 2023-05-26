@@ -1,14 +1,16 @@
 window.addEventListener("load", function () {
-  // elements
+  // inputs
   const inputCardholderName = document.getElementById("input-cardholder-name");
   const inputCardNumber = document.getElementById("input-card-number");
   const inputMonth = document.getElementById("input-month");
   const inputYear = document.getElementById("input-year");
   const inputCVC = document.getElementById("input-cvc");
 
+  // butttons
   const buttonConfirm = document.getElementById("btn-confirm");
   const buttonContinue = document.getElementById("btn-continue");
 
+  // elements - card
   const cardNumber = document.getElementById("card-number");
   const cardName = document.getElementById("card-name");
   const cardDate = document.getElementById("card-date");
@@ -16,6 +18,7 @@ window.addEventListener("load", function () {
   const cardYear = document.getElementById("card-year");
   const cardCVC = document.getElementById("card-cvc");
 
+  // elements - display
   const cardForm = document.getElementById("card-form");
   const cardConfirmation = document.getElementById("card-confirmation");
 
@@ -33,7 +36,9 @@ window.addEventListener("load", function () {
   });
 
   inputCardNumber.addEventListener("keyup", (e) => {
-    cardNumber.textContent = inputCardNumber.value;
+    let cardNumberTemporary = (inputCardNumber.value).match(/.{1,4}/g);
+    let cardNumberSpace = cardNumberTemporary.join(' ');
+    cardNumber.textContent = cardNumberSpace;
   });
 
   inputMonth.addEventListener("keyup", (e) => {
@@ -103,8 +108,6 @@ window.addEventListener("load", function () {
     }
   }
 
-  // ta funkcja mi nie działa!
-
   function validationDate() {
     console.log("siemka");
     inputMonth.removeAttribute("invalid");
@@ -116,17 +119,11 @@ window.addEventListener("load", function () {
       const isValidMonthLength = checkLengthMonth(inputMonth.value);
       const isValidYearLength = checkLengthYear(inputYear.value);
       if (isValidMonth && isValidMonthLength && isValidYearLength) {
-        //tu wchodzimy kiedy wszystko jest okej więc usuwanie atrybutu i ustawianie display none jest prawiłowe
         inputMonth.removeAttribute("invalid");
         inputYear.removeAttribute("invalid");
         setDisplayToElement(errorWrongDate, "none");
         return true;
       } else {
-        //tutaj trochę się zadziało
-        //wchodzimy tutaj jak jest błąd, więc użycie removeAttribute w tym przypadku jest niepoprawne
-        //inputMonth.removeAttribute("invalid", !isValid);
-        //inputYear.removeAttribute("invalid", !isValid);
-        //to setDisplayToElement jest git
         setDisplayToElement(errorWrongDate, "block");
         return false;
       }
@@ -224,6 +221,8 @@ window.addEventListener("load", function () {
       return true;
     }
   }
+
+  // cleaning form 
 
   function setElementsToDefault() {
     inputCardholderName.value = "";
