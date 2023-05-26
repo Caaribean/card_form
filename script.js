@@ -68,15 +68,7 @@ window.addEventListener("load", function () {
   buttonContinue.addEventListener("click", (e) => {
     setDisplayToElement(cardForm, "flex");
     setDisplayToElement(cardConfirmation, "none");
-    inputCardholderName.value = "";
-    inputCardNumber.value = "";
-    inputMonth.value = "";
-    inputYear.value = "";
-    inputCVC.value = "";
-    cardName.textContent = "JANE APPLESEED";
-    cardNumber.textContent = "0000 0000 0000 0000";
-    cardDate.textContent = "00/00";
-    cardCVC.textContent = "000";
+    setElementsToDefault();
   });
 
   function setDisplayToElement(elementDOM, typeOfDisplay) {
@@ -231,5 +223,17 @@ window.addEventListener("load", function () {
       setDisplayToElement(errorBlankCVC, "none");
       return true;
     }
+  }
+
+  function setElementsToDefault() {
+    inputCardholderName.value = "";
+    inputCardNumber.value = "";
+    inputMonth.value = "";
+    inputYear.value = "";
+    inputCVC.value = "";
+    cardName.textContent = "JANE APPLESEED";
+    cardNumber.textContent = "0000 0000 0000 0000";
+    cardDate.textContent = "00/00";
+    cardCVC.textContent = "000";
   }
 });
