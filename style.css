@@ -121,7 +121,7 @@ body .container .card-form__btn {
 }
 body .container .card-form__btn:hover, body .container .card-form__btn:focus-visible {
   opacity: 0.9;
-  transform: translate(-0.5rem);
+  transform: translate(-0.75rem);
   transition: transform 250ms;
 }
 body .container .card-form__error-message {
@@ -171,6 +171,6 @@ body .container .card-confirmation__btn {
 }
 body .container .card-confirmation__btn:hover, body .container .card-confirmation__btn:focus-visible {
   opacity: 0.9;
-  transform: translate(-0.5rem);
+  transform: translate(-0.75rem);
   transition: transform 250ms;
 }/*# sourceMappingURL=style.css.map */
