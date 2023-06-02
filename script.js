@@ -109,7 +109,6 @@ window.addEventListener("load", function () {
   }
 
   function validationDate() {
-    console.log("siemka");
     inputMonth.removeAttribute("invalid");
     inputYear.removeAttribute("invalid");
     setDisplayToElement(errorBlankDate, "none");
